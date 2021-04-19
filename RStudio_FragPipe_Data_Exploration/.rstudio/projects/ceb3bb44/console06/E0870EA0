@@ -1,0 +1,12 @@
+cd [K[K[Kls
+bin   dev  home  lib	lib64	 media	opt   rocker_scripts  run	  sbin	sys  usr
+boot  etc  init  lib32	libexec  mnt	proc  root	      sbgenomics  srv	tmp  var
+]0;/rstudio@f28610cb9071:/$ cd ~
+]0;/home/rstudiorstudio@f28610cb9071:~$ ls
+]0;/home/rstudiorstudio@f28610cb9071:~$ cd .rstudio/
+]0;/home/rstudio/.rstudiorstudio@f28610cb9071:~/.rstudio$ ls
+addin_registry	dictionaries	  notebooks	    presentation    projects_settings	  sessions
+client-state	history_database  pcs		    profiles-cache  rversion-settings	  sources
+ctx		monitored	  persistent-state  projects	    saved_source_markers
+]0;/home/rstudio/.rstudiorstudio@f28610cb9071:~/.rstudio$ cp .rs[K[K[K[K[K[Kcd ../
+]0;/home/rstudiorstudio@f28610cb9071:~$ cp -R .rstudio/[K /sb[Kg[Kbgenomics/workspace/[K

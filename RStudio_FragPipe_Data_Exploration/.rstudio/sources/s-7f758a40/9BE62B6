@@ -1,0 +1,27 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1618629582879.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "9BE62B6",
+    "lastKnownWriteTime" : 1618801490,
+    "last_content_update" : 1618801490,
+    "path" : "~/TMT_Integrator_QC.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "chunk_output_type" : "console",
+        "cursorPosition" : "35,0",
+        "docOutlineVisible" : "0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
