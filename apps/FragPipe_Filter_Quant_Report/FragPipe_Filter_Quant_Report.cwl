@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: Workflow
-label: '03 FragPipe: Filter - Quant - Report'
+label: 'FragPipe: Filter - Quant - Report'
 doc: |-
   This workflow takes the PeptideProphet, and the ProteinProphet output files, and applies a stringent False Discovery Rate (FDR) filtering. Peptide and proteins are filtered individually at 1% FDR. The high-quality PSMs, peptides, and proteins are then quantified using a label-free algorithm that uses the apex peak intensity as a measurement. Finally, the isobaric tags are quantified and annotated with the correct sample labels.
 $namespaces:
@@ -49,7 +49,7 @@ steps:
           }
       }
     source: workspace_and_annotation
-  run: 03_FragPipe_Filter_Quant_Report.cwl.steps/filter.cwl
+  run: FragPipe_Filter_Quant_Report.cwl.steps/filter.cwl
   out:
   - id: workspace_out
   sbg:x: 536.1303100585938
@@ -70,7 +70,7 @@ steps:
           }
       }
     source: workspace_and_annotation
-  run: 03_FragPipe_Filter_Quant_Report.cwl.steps/label_quant.cwl
+  run: FragPipe_Filter_Quant_Report.cwl.steps/label_quant.cwl
   out:
   - id: workspace_out
   sbg:x: 719.0609130859375
@@ -80,7 +80,7 @@ steps:
   in:
   - id: workspace_in
     source: label_quant/workspace_out
-  run: 03_FragPipe_Filter_Quant_Report.cwl.steps/freequant.cwl
+  run: FragPipe_Filter_Quant_Report.cwl.steps/freequant.cwl
   out:
   - id: workspace_out
   sbg:x: 917.020263671875
@@ -94,7 +94,7 @@ steps:
     source: freequant/workspace_out
   - id: interact_protein_xml
     source: protxml
-  run: 03_FragPipe_Filter_Quant_Report.cwl.steps/report.cwl
+  run: FragPipe_Filter_Quant_Report.cwl.steps/report.cwl
   out:
   - id: report_outputs
   sbg:x: 1094.7764892578125

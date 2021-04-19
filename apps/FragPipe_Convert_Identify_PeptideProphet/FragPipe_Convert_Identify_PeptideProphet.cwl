@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: Workflow
-label: '01 FragPipe:  Convert - Identify - PeptideProphet'
+label: 'FragPipe:  Convert - Identify - PeptideProphet'
 doc: |-
   The first step of the workflow consists of converting the raw mass spectrometry data to the mzML format using msconvert, followed by the database search using MSFragger, and the peptide validation using PeptideProphet.
 $namespaces:
@@ -288,7 +288,7 @@ steps:
     - msconvert/mzML
   - id: workspace_in
     source: database/workspace
-  run: 01_FragPipe_Convert_Identify_PeptideProphet.cwl.steps/peptide_prophet.cwl
+  run: FragPipe_Convert_Identify_PeptideProphet.cwl.steps/peptide_prophet.cwl
   out:
   - id: peptide_prophet_log
   - id: output_xml
@@ -306,7 +306,7 @@ steps:
   - id: meta_data_files
     source:
     - raw_files
-  run: 01_FragPipe_Convert_Identify_PeptideProphet.cwl.steps/workspace.cwl
+  run: FragPipe_Convert_Identify_PeptideProphet.cwl.steps/workspace.cwl
   out:
   - id: workspace
   sbg:x: 243.94737243652344
@@ -318,7 +318,7 @@ steps:
     source: raw_files
   scatter:
   - raw_files
-  run: 01_FragPipe_Convert_Identify_PeptideProphet.cwl.steps/msconvert.cwl
+  run: FragPipe_Convert_Identify_PeptideProphet.cwl.steps/msconvert.cwl
   out:
   - id: std_out
   - id: mzML
@@ -331,7 +331,7 @@ steps:
     source: database_name
   - id: workspace_in
     source: workspace/workspace
-  run: 01_FragPipe_Convert_Identify_PeptideProphet.cwl.steps/database.cwl
+  run: FragPipe_Convert_Identify_PeptideProphet.cwl.steps/database.cwl
   out:
   - id: output
   - id: workspace
@@ -537,7 +537,7 @@ steps:
     default: 0
   - id: intensity_transform
     default: 0
-  run: 01_FragPipe_Convert_Identify_PeptideProphet.cwl.steps/msfragger.cwl
+  run: FragPipe_Convert_Identify_PeptideProphet.cwl.steps/msfragger.cwl
   out:
   - id: standard_out
   - id: pepxml

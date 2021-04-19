@@ -1,6 +1,6 @@
 cwlVersion: v1.1
 class: Workflow
-label: '02 FragPipe: ProteinProphet'
+label: 'FragPipe: ProteinProphet'
 doc: |-
   This workflow step takes the PeptideProphet output files from the first step containing the peptide validation and calculates the protein inference using ProteinProphet.
 $namespaces:
@@ -41,7 +41,7 @@ steps:
   - id: workspace_in
     source:
     - workspace_in
-  run: 02_FragPipe_ProteinProphet.cwl.steps/philosopher_proteinprophet.cwl
+  run: FragPipe_ProteinProphet.cwl.steps/philosopher_proteinprophet.cwl
   out:
   - id: interact_protein_xml
   sbg:x: -100
