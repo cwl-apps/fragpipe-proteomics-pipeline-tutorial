@@ -779,6 +779,9 @@ inputs:
     prefix: --intensity_transform
     position: 5
     shellQuote: false
+- id: EULA
+  label: Accept End Level User Agreement
+  type: boolean
 
 outputs:
 - id: standard_out
@@ -798,71 +801,54 @@ outputs:
     outputEval: $(inheritMetadata(self, inputs.mzML))
 stdout: $(inputs.mzML[0].metadata["Plex or dataset name"]).msfragger.log
 
-baseCommand:
-- java
+baseCommand: []
 arguments:
-- prefix: -Xmx
+- prefix: ''
   position: 3
-  valueFrom: $(inputs.Xmx)G
+  valueFrom: $(if (inputs.EULA) {"java -Xmx" + inputs.Xmx + "G"} else {"Must accept
+    EULA"})
   separate: false
   shellQuote: false
 - prefix: -jar
   position: 3
   valueFrom: /data/MSFragger-3.2/MSFragger-3.2.jar *.mzML
   shellQuote: false
-id: david.roberson/pdc-webinar-dev/msfragger/6
+id: david.roberson/build-fragpipe-proteomics-pipeline-tutorial/msfragger/2
 'null':
 sbg:appVersion:
 - v1.1
-sbg:content_hash: aea7d16747cb29b1e820f9c2a4305373a8088a3b765e7a0495c6e55b139d25048
+sbg:content_hash: a541fe8decd6acfeabf1c36287be3bc22f6a24b3711e2b0ec573e85c859dd7549
 sbg:contributors:
 - david.roberson
-- prvst
 sbg:createdBy: david.roberson
-sbg:createdOn: 1617031664
-sbg:id: david.roberson/pdc-webinar-dev/msfragger/6
+sbg:createdOn: 1618954817
+sbg:id: david.roberson/build-fragpipe-proteomics-pipeline-tutorial/msfragger/2
 sbg:image_url:
-sbg:latestRevision: 6
-sbg:modifiedBy: prvst
-sbg:modifiedOn: 1617294992
-sbg:project: david.roberson/pdc-webinar-dev
-sbg:projectName: PDC Webinar Dev
+sbg:latestRevision: 2
+sbg:modifiedBy: david.roberson
+sbg:modifiedOn: 1618955396
+sbg:project: david.roberson/build-fragpipe-proteomics-pipeline-tutorial
+sbg:projectName: 'BUILD: FragPipe Proteomics Pipeline Tutorial'
 sbg:publisher: sbg
-sbg:revision: 6
+sbg:revision: 2
 sbg:revisionNotes: ''
 sbg:revisionsInfo:
 - sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1617031664
+  sbg:modifiedOn: 1618954817
   sbg:revision: 0
   sbg:revisionNotes: |-
     Uploaded using sbpack v2020.10.05. 
     Source: 
-    repo: https://github.com/davidroberson/shotgun_proteomics.git
-    file: tools/msfragger/msfragger.cwl
-    commit: 31fdf12
+    repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
+    file: FragPipe_Convert_Identify_PeptideProphet/FragPipe_Convert_Identify_PeptideProphet.cwl.steps/msfragger.cwl
+    commit: bc53527
 - sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1617033967
+  sbg:modifiedOn: 1618955283
   sbg:revision: 1
-  sbg:revisionNotes: updated docker
+  sbg:revisionNotes: added EULA toggle
 - sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1617033983
+  sbg:modifiedOn: 1618955396
   sbg:revision: 2
-  sbg:revisionNotes: updated docker
-- sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1617092887
-  sbg:revision: 3
-  sbg:revisionNotes: ''
-- sbg:modifiedBy: prvst
-  sbg:modifiedOn: 1617121674
-  sbg:revision: 4
-  sbg:revisionNotes: ''
-- sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1617288472
-  sbg:revision: 5
-  sbg:revisionNotes: corrected positions of some new flags
-- sbg:modifiedBy: prvst
-  sbg:modifiedOn: 1617294992
-  sbg:revision: 6
   sbg:revisionNotes: ''
 sbg:sbgMaintained: false
 sbg:validationErrors: []

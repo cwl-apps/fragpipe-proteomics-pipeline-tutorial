@@ -156,7 +156,9 @@ inputs:
 outputs:
 - id: tmt_qc_report
   label: TMT QC Report
-  type: File?
+  type:
+  - 'null'
+  - File
   outputBinding:
     glob: '*.html'
     outputEval: $(inheritMetadata(self, inputs.tmt_gene_report))

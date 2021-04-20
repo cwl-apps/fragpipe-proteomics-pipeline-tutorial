@@ -9,10 +9,13 @@ $namespaces:
 requirements:
 - class: InlineJavascriptRequirement
 - class: StepInputExpressionRequirement
+- class: SubworkflowFeatureRequirement
 
 inputs:
 - id: psm_file
-  type: File[]
+  type:
+    type: array
+    items: File
   sbg:fileTypes: TSV
   sbg:x: -348.1875
   sbg:y: -238.8984375
@@ -24,14 +27,19 @@ inputs:
 
 outputs:
 - id: all_report_files
-  type: File[]?
+  type:
+  - 'null'
+  - type: array
+    items: File
   outputSource:
   - tmt_integrator/all_report_files
   sbg:x: 58.26561737060547
   sbg:y: -267.1984558105469
 - id: tmt_qc_report
   label: TMT QC Report
-  type: File?
+  type:
+  - 'null'
+  - File
   outputSource:
   - tmt_integrator_qc/tmt_qc_report
   sbg:x: 207.99998474121094
@@ -43,7 +51,7 @@ steps:
   in:
   - id: tmt_gene_report
     source: tmt_integrator/abundance_by_gene_report
-  run: FragPipe_TMT_Integrator_and_QC.cwl.steps/tmt_integrator_qc.cwl
+  run: FragPipe-TMT-Integrator-and-QC.cwl.steps/tmt_integrator_qc.cwl
   out:
   - id: tmt_qc_report
   sbg:x: 49
@@ -56,7 +64,7 @@ steps:
     - psm_file
   - id: database
     source: database
-  run: FragPipe_TMT_Integrator_and_QC.cwl.steps/tmt_integrator.cwl
+  run: FragPipe-TMT-Integrator-and-QC.cwl.steps/tmt_integrator.cwl
   out:
   - id: all_report_files
   - id: abundance_by_gene_report
@@ -70,46 +78,43 @@ sbg:appVersion:
 - v1.1
 sbg:categories:
 - Proteomics
-sbg:content_hash: a484788c4e94d85f7fd578e879df0294341cfe18cb55adbcc25bfe90fe326cc9f
+sbg:content_hash: ae0e5b97dd4fa1b912e0df5f4dc491c2e6c808735c5e97296e8d15f920a6d8e8f
 sbg:contributors:
 - david.roberson
 sbg:createdBy: david.roberson
-sbg:createdOn: 1618935087
+sbg:createdOn: 1618959488
 sbg:id: |-
-  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe_TMT_Integrator_and_QC/2
+  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe-TMT-Integrator-and-QC/0
 sbg:image_url: |-
-  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe_TMT_Integrator_and_QC/2.png
-sbg:latestRevision: 2
+  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe-TMT-Integrator-and-QC/0.png
+sbg:latestRevision: 0
 sbg:links:
 - id: https://fragpipe.nesvilab.org/
   label: fragpipe.nesvilab.org
 sbg:modifiedBy: david.roberson
-sbg:modifiedOn: 1618936951
+sbg:modifiedOn: 1618959488
 sbg:original_source: |-
-  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe_TMT_Integrator_and_QC/2/raw/
+  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe-TMT-Integrator-and-QC/0/raw/
 sbg:project: david.roberson/build-fragpipe-proteomics-pipeline-tutorial
 sbg:projectName: 'BUILD: FragPipe Proteomics Pipeline Tutorial'
 sbg:publisher: sbg
-sbg:revision: 2
-sbg:revisionNotes: ''
+sbg:revision: 0
+sbg:revisionNotes: |-
+  Uploaded using sbpack v2020.10.05. 
+  Source: 
+  repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
+  file: 
+  commit: (uncommitted file)
 sbg:revisionsInfo:
 - sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618935087
+  sbg:modifiedOn: 1618959488
   sbg:revision: 0
   sbg:revisionNotes: |-
     Uploaded using sbpack v2020.10.05. 
     Source: 
     repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
-    file: apps/FragPipe_TMT_Integrator_and_QC/FragPipe_TMT_Integrator_and_QC.cwl
-    commit: e94cb2b
-- sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618936582
-  sbg:revision: 1
-  sbg:revisionNotes: ''
-- sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618936951
-  sbg:revision: 2
-  sbg:revisionNotes: ''
+    file: 
+    commit: (uncommitted file)
 sbg:sbgMaintained: false
 sbg:toolAuthor: Felipe da Veiga Leprevost
 sbg:toolkit: FragPipe

@@ -27,7 +27,9 @@ requirements:
 inputs:
 - id: isolated
   doc: use the isolated ion instead of the selected ion for quantification
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   default: true
   inputBinding:
     prefix: --isolated
@@ -35,7 +37,9 @@ inputs:
     shellQuote: false
 - id: ptw
   doc: specify the time windows for the peak (minute) (default 0.4)
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 0.4
   inputBinding:
     prefix: --ptw
@@ -43,7 +47,9 @@ inputs:
     shellQuote: false
 - id: tol
   doc: m/z tolerance in ppm (default 10)
-  type: int?
+  type:
+  - 'null'
+  - int
   inputBinding:
     prefix: --tol
     position: 3
@@ -54,7 +60,9 @@ inputs:
 
 outputs:
 - id: workspace_out
-  type: Directory?
+  type:
+  - 'null'
+  - Directory
   outputBinding:
     glob: $(inputs.workspace_in.basename)
     loadListing: no_listing

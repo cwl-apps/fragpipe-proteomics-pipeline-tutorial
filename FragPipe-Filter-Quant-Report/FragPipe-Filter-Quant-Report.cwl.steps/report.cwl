@@ -95,19 +95,25 @@ requirements:
 
 inputs:
 - id: decoys
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --decoys
     position: 0
     shellQuote: false
 - id: msstats
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --msstats
     position: 1
     shellQuote: false
 - id: mzid
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --mzid
     position: 2
@@ -120,7 +126,10 @@ inputs:
 
 outputs:
 - id: report_outputs
-  type: File[]?
+  type:
+  - 'null'
+  - type: array
+    items: File
   outputBinding:
     glob: 'report_files/* '
     outputEval: $(inheritMetadata(self, inputs.workspace_in))

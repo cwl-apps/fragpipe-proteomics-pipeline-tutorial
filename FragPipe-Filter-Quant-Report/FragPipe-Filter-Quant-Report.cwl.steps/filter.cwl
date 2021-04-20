@@ -56,41 +56,53 @@ requirements:
 
 inputs:
 - id: 2d
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --2d
     position: 0
     shellQuote: false
 - id: inference
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --inference
     position: 1
     shellQuote: false
 - id: ion
   doc: peptide ion FDR level (default 0.01)
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 0.01
   inputBinding:
     prefix: --ion
     position: 2
     shellQuote: false
 - id: mapmods
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --mapmods
     position: 3
     shellQuote: false
 - id: models
   doc: print model distribution
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --models
     position: 4
     shellQuote: false
 - id: pep
   doc: peptide FDR level (default 0.01)
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 0.01
   inputBinding:
     prefix: --pep
@@ -98,7 +110,9 @@ inputs:
     shellQuote: false
 - id: pepProb
   doc: top peptide probability threshold for the FDR filtering (default 0.7)
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 0.7
   inputBinding:
     prefix: --pepProb
@@ -106,14 +120,18 @@ inputs:
     shellQuote: false
 - id: picked
   doc: apply the picked FDR algorithm before the protein scoring
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --picked
     position: 8
     shellQuote: false
 - id: prot
   doc: protein FDR level
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 0.05
   inputBinding:
     prefix: --prot
@@ -123,7 +141,9 @@ inputs:
 - id: protProb
   doc: |-
     protein probability threshold for the FDR filtering (not used with the razor algorithm) (default 0.5)
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 0.05
   inputBinding:
     prefix: --protProb
@@ -138,7 +158,9 @@ inputs:
     shellQuote: false
 - id: psm
   doc: psm FDR level (default 0.01)
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 0.01
   inputBinding:
     prefix: --psm
@@ -146,7 +168,9 @@ inputs:
     shellQuote: false
 - id: razor
   doc: use razor peptides for protein FDR scoring
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --razor
     position: 13
@@ -154,14 +178,18 @@ inputs:
 - id: sequential
   doc: |-
     alternative algorithm that estimates FDR using both filtered PSM and protein lists
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --sequential
     position: 14
     shellQuote: false
 - id: tag
   doc: decoy tag (default "rev_")
-  type: string?
+  type:
+  - 'null'
+  - string
   default: rev_
   inputBinding:
     prefix: --tag
@@ -169,7 +197,9 @@ inputs:
     shellQuote: false
 - id: weight
   doc: threshold for defining peptide uniqueness (default 1)
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 1
   inputBinding:
     prefix: --weight

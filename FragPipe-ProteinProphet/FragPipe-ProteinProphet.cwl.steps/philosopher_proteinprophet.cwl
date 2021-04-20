@@ -96,7 +96,9 @@ requirements:
 inputs:
 - id: iprophet
   doc: input is from iProphet
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   default:
   inputBinding:
     prefix: --iprophet
@@ -104,7 +106,9 @@ inputs:
     shellQuote: false
 - id: maxppmdiff
   doc: maximum peptide mass difference in ppm (default 2000000)
-  type: int?
+  type:
+  - 'null'
+  - int
   default: 2000000
   inputBinding:
     prefix: --maxppmdiff
@@ -112,7 +116,9 @@ inputs:
     shellQuote: false
 - id: minprob
   doc: PeptideProphet probability threshold (default 0.05)
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 0.05
   inputBinding:
     prefix: --minprob
@@ -120,14 +126,18 @@ inputs:
     shellQuote: false
 - id: nonsp
   doc: do not use NSP model
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --nonsp
     position: 3
     shellQuote: false
 - id: output
   doc: Output name (default "interact")
-  type: string?
+  type:
+  - 'null'
+  - string
   default: interact
   inputBinding:
     prefix: --output
@@ -135,17 +145,24 @@ inputs:
     shellQuote: false
 - id: unmapped
   doc: report results for UNMAPPED proteins
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --unmapped
     position: 5
     shellQuote: false
 - id: workspace_in
-  type: File[]?
+  type:
+  - 'null'
+  - type: array
+    items: File
 
 outputs:
 - id: interact_protein_xml
-  type: File?
+  type:
+  - 'null'
+  - File
   outputBinding:
     glob: interact.prot.xml
     outputEval: $(inheritMetadata(self, inputs.workspace_in))

@@ -28,7 +28,9 @@ requirements:
 inputs:
 - id: bestpsm
   doc: select the best PSMs for protein quantification
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   default: true
   inputBinding:
     prefix: --bestpsm
@@ -36,7 +38,9 @@ inputs:
     shellQuote: false
 - id: brand
   doc: isobaric labeling brand (tmt, itraq)
-  type: string?
+  type:
+  - 'null'
+  - string
   default: tmt
   inputBinding:
     prefix: --brand
@@ -44,7 +48,9 @@ inputs:
     shellQuote: false
 - id: level
   doc: ms level for the quantification (default 2)
-  type: int?
+  type:
+  - 'null'
+  - int
   default: 2
   inputBinding:
     prefix: --level
@@ -52,7 +58,9 @@ inputs:
     shellQuote: false
 - id: minprob
   doc: only use PSMs with the specified minimum probability score (default 0.7)
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 0.7
   inputBinding:
     prefix: --minprob
@@ -60,7 +68,9 @@ inputs:
     shellQuote: false
 - id: plex
   doc: number of reporter ion channels
-  type: int?
+  type:
+  - 'null'
+  - int
   default: 10
   inputBinding:
     prefix: --plex
@@ -68,7 +78,9 @@ inputs:
     shellQuote: false
 - id: purity
   doc: ion purity threshold (default 0.5)
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 0.5
   inputBinding:
     prefix: --purity
@@ -77,7 +89,9 @@ inputs:
 - id: removelow
   doc: |-
     ignore the lower % of PSMs based on their summed abundances. 0 means no removal, entry value must be a decimal
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 0.03
   inputBinding:
     prefix: --removelow
@@ -85,7 +99,9 @@ inputs:
     shellQuote: false
 - id: tol
   doc: m/z tolerance in ppm (default 20)
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 20
   inputBinding:
     prefix: --tol
@@ -93,7 +109,9 @@ inputs:
     shellQuote: false
 - id: uniqueonly
   doc: report quantification based only on unique peptides
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   default: true
   inputBinding:
     prefix: --uniqueonly
@@ -104,7 +122,9 @@ inputs:
   loadListing: no_listing
 - id: annotation
   doc: Replaces channel numbers with sample names.  TXT file with two columns.
-  type: File?
+  type:
+  - 'null'
+  - File
   inputBinding:
     prefix: --annot
     position: 0

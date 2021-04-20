@@ -139,7 +139,9 @@ requirements:
 
 inputs:
 - id: psm_file
-  type: File[]
+  type:
+    type: array
+    items: File
   inputBinding:
     position: 0
     shellQuote: false
@@ -150,12 +152,17 @@ inputs:
 
 outputs:
 - id: all_report_files
-  type: File[]?
+  type:
+  - 'null'
+  - type: array
+    items: File
   outputBinding:
     glob: '*tsv'
     outputEval: $(inheritMetadata(self, inputs.psm_file))
 - id: abundance_by_gene_report
-  type: File?
+  type:
+  - 'null'
+  - File
   outputBinding:
     glob: '*Report_abundance_groupby_gene_protNorm_MD_gu_0.tsv'
 
