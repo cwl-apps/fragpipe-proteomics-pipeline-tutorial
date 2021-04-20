@@ -3,6 +3,8 @@ class: Workflow
 label: 'FragPipe:  Convert - Identify - PeptideProphet'
 doc: |-
   The first step of the workflow consists of converting the raw mass spectrometry data to the mzML format using msconvert, followed by the database search using MSFragger, and the peptide validation using PeptideProphet.
+
+   MSFragger can only be used for academic research, non-commercial or educational purposes.
 $namespaces:
   sbg: https://sevenbridges.com
 
@@ -552,54 +554,42 @@ hints:
   value: c5.4xlarge;ebs-gp2;200
 sbg:appVersion:
 - v1.1
-sbg:content_hash: a657093fd574fffad4b4f4f5662630fb7a3429a3dca4ac4082b4f42640a3c457c
+sbg:categories:
+- Proteomics
+sbg:content_hash: a4184df8fd552927e503c19b244c94babcc6f00f1182c23200e44910dabbfcd33
 sbg:contributors:
 - david.roberson
 sbg:createdBy: david.roberson
-sbg:createdOn: 1618420234
-sbg:id: david.roberson/pdc-workshop/conversion-and-peptide-prophet/6
+sbg:createdOn: 1618924744
+sbg:id: |-
+  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe_Convert_Identify_PeptideProphet/1
 sbg:image_url: |-
-  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/pdc-workshop/conversion-and-peptide-prophet/6.png
-sbg:latestRevision: 6
+  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe_Convert_Identify_PeptideProphet/1.png
+sbg:latestRevision: 1
 sbg:license: EULA for MSFragger
 sbg:modifiedBy: david.roberson
-sbg:modifiedOn: 1618798917
+sbg:modifiedOn: 1618928636
 sbg:original_source: |-
-  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/pdc-workshop/conversion-and-peptide-prophet/6/raw/
-sbg:project: david.roberson/pdc-workshop
-sbg:projectName: PDC Workshop and Public Project Dev
+  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe_Convert_Identify_PeptideProphet/1/raw/
+sbg:project: david.roberson/build-fragpipe-proteomics-pipeline-tutorial
+sbg:projectName: 'BUILD: FragPipe Proteomics Pipeline Tutorial'
 sbg:publisher: sbg
-sbg:revision: 6
-sbg:revisionNotes: ''
+sbg:revision: 1
+sbg:revisionNotes: added a tag
 sbg:revisionsInfo:
 - sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618420234
+  sbg:modifiedOn: 1618924744
   sbg:revision: 0
-  sbg:revisionNotes: Copy of david.roberson/pdc-webinar-devl-2/conversion-and-peptide-prophet/4
+  sbg:revisionNotes: |-
+    Uploaded using sbpack v2020.10.05. 
+    Source: 
+    repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
+    file: apps/FragPipe_Convert_Identify_PeptideProphet/FragPipe_Convert_Identify_PeptideProphet.cwl
+    commit: 2054e80
 - sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618421363
+  sbg:modifiedOn: 1618928636
   sbg:revision: 1
-  sbg:revisionNotes: ''
-- sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618421468
-  sbg:revision: 2
-  sbg:revisionNotes: ''
-- sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618497340
-  sbg:revision: 3
-  sbg:revisionNotes: c5.2xlarge 200GB
-- sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618503291
-  sbg:revision: 4
-  sbg:revisionNotes: c5.4xlarge 200GB 1 Max Instance
-- sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618600962
-  sbg:revision: 5
-  sbg:revisionNotes: ''
-- sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618798917
-  sbg:revision: 6
-  sbg:revisionNotes: ''
+  sbg:revisionNotes: added a tag
 sbg:sbgMaintained: false
 sbg:toolkit: FragPipe
 sbg:toolkitVersion: v15.0
