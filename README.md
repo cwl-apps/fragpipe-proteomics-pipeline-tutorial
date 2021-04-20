@@ -1,6 +1,9 @@
 # FragPipe Proteomics Pipeline Tutorial
 ____  
 
+FragPipe is a suite of computational tools enabling comprehensive analysis of mass spectrometry-based proteomics data. It is powered by [MSFragger](msfragger.nesvilab.org) - an ultrafast proteomic search engine suitable for both conventional and "open" (wide precursor mass tolerance) peptide identification. FragPipe includes the [Philosopher toolkit](philosopher.nesvilab.org) for downstream post-processing of MSFragger search results (PeptideProphet, iProphet, ProteinProphet), FDR filtering, label-based quantification, and multi-experiment summary report generation. Crystal-C and PTM-Shepherd are included to aid interpretation of open search results. Also included in FragPipe binary are [TMT-Integrator](tmt-integrator.nesvilab.org) for TMT/iTRAQ isobaric labeling-based quantification, IonQuant for label-free quantification with match-between-run (MBR) functionality, SpectraST and EasyPQP spectral library building modules, and DIA-Umpire SE module for direct analysis of data independent acquisition (DIA) data.
+
+
 Goal: Use FragPipe Proteomics Pipeline to analyze the proteome of clear cell renal cell carcinoma samples.  
   
 Steps:
