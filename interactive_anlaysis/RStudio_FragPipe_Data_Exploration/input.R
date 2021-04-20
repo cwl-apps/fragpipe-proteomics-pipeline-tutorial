@@ -1,2 +1,0 @@
-
-gene_report_path = "/sbgenomics/project-files/results/04_FragPipe_TMT_Integrator_and_QC/Report_abundance_groupby_gene_protNorm_MD_gu_0.tsv"
