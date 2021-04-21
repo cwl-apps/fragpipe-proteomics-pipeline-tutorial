@@ -124,14 +124,18 @@ requirements:
 inputs:
 - id: accmass
   doc: use accurate mass model binning
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --accmass
     position: 0
     shellQuote: false
 - id: combine
   doc: combine the results from PeptideProphet into a single result file
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --combine
     position: 1
@@ -146,7 +150,9 @@ inputs:
 - id: decoy
   doc: |-
     semi-supervised mode, protein name prefix to identify decoy entries (default "rev_")
-  type: string?
+  type:
+  - 'null'
+  - string
   default: rev_
   inputBinding:
     prefix: --decoy
@@ -154,14 +160,18 @@ inputs:
     shellQuote: false
 - id: decoyprobs
   doc: compute possible non-zero probabilities for decoy entries on the last iteration
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --decoyprobs
     position: 4
     shellQuote: false
 - id: enzyme
   doc: enzyme used in sample
-  type: string?
+  type:
+  - 'null'
+  - string
   default: trypsin
   inputBinding:
     prefix: --enzyme
@@ -169,14 +179,18 @@ inputs:
     shellQuote: false
 - id: expectscore
   doc: use expectation value as the only contributor to the f-value for modeling
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --expectscore
     position: 6
     shellQuote: false
 - id: masswidth
   doc: model mass width (default 5)
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 5
   inputBinding:
     prefix: --masswidth
@@ -184,7 +198,9 @@ inputs:
     shellQuote: false
 - id: minpeplen
   doc: minimum peptide length not rejected (default 7)
-  type: int?
+  type:
+  - 'null'
+  - int
   default: 7
   inputBinding:
     prefix: --minpeplen
@@ -192,7 +208,9 @@ inputs:
     shellQuote: false
 - id: minprob
   doc: report results with minimum probability (default 0.05)
-  type: float?
+  type:
+  - 'null'
+  - float
   default: 0.05
   inputBinding:
     prefix: --minprob
@@ -200,29 +218,39 @@ inputs:
     shellQuote: false
 - id: nonparam
   doc: use semi-parametric modeling, must be used in conjunction with --decoy option
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --nonparam
     position: 10
     shellQuote: false
 - id: nontt
   doc: disable NTT enzymatic termini model
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --nontt
     position: 11
     shellQuote: false
 - id: ppm
   doc: use ppm mass error instead of Daltons for mass modeling
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --ppm
     position: 12
     shellQuote: false
 - id: pepXML
-  type: File[]
+  type:
+    type: array
+    items: File
 - id: mzML
-  type: File[]
+  type:
+    type: array
+    items: File
 - id: workspace_in
   type: File
 
@@ -233,17 +261,23 @@ outputs:
     glob: $(inputs.pepXML[0].metadata["Plex or dataset name"]).peptide_prophet.log
     outputEval: $(inheritMetadata(self, inputs.pepXML))
 - id: output_xml
-  type: File[]
+  type:
+    type: array
+    items: File
   outputBinding:
     glob: '*pep.xml'
     outputEval: $(inheritMetadata(self, inputs.pepXML))
 - id: peptide_prophet_folder_archive
-  type: File?
+  type:
+  - 'null'
+  - File
   outputBinding:
     glob: "*.for_protein.tar.gz\n\n"
     outputEval: $(inheritMetadata(self, inputs.pepXML))
 - id: peptide_archive_with_mzml
-  type: File?
+  type:
+  - 'null'
+  - File
   outputBinding:
     glob: '*for_filter.tar.gz'
     outputEval: $(inheritMetadata(self, inputs.pepXML))

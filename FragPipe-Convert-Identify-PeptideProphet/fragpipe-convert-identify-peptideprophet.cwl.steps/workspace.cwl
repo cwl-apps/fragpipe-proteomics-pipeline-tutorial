@@ -85,7 +85,9 @@ requirements:
 inputs:
 - id: init
   doc: Initialize the workspace
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   default:
   inputBinding:
     prefix: --init
@@ -93,34 +95,44 @@ inputs:
     shellQuote: false
 - id: analytics
   doc: reports when a workspace is created for usage estimation (default true)
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --analytics
     position: 1
     shellQuote: false
 - id: backup
   doc: create a backup of the experiment meta data
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --backup
     position: 1
     shellQuote: false
 - id: clean
   doc: remove the workspace and all meta data. Experimental file are kept intact
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --clean
     position: 1
     shellQuote: false
 - id: nocheck
   doc: do not check for new versions
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --nocheck
     position: 1
     shellQuote: false
 - id: meta_data_files
-  type: File[]
+  type:
+    type: array
+    items: File
   inputBinding:
     position: 0
     valueFrom: ./$(self[0].metadata["Plex or dataset name"])
@@ -128,7 +140,9 @@ inputs:
 
 outputs:
 - id: workspace
-  type: File?
+  type:
+  - 'null'
+  - File
   outputBinding:
     glob: '*.tar.gz'
     outputEval: $(inheritMetadata(self, inputs.meta_data_files))
