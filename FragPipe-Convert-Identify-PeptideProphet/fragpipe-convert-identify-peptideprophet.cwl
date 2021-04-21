@@ -104,7 +104,6 @@ requirements:
 - class: ScatterFeatureRequirement
 - class: InlineJavascriptRequirement
 - class: StepInputExpressionRequirement
-- class: SubworkflowFeatureRequirement
 
 inputs:
 - id: database_name
@@ -116,54 +115,38 @@ inputs:
   sbg:y: 64
 - id: raw_files
   label: RAW files
-  type:
-    type: array
-    items: File
+  type: File[]
   sbg:fileTypes: RAW
   sbg:x: 31
   sbg:y: 64
 - id: decoy
   doc: |-
     semi-supervised mode, protein name prefix to identify decoy entries (default "rev_")
-  type:
-  - 'null'
-  - string
+  type: string?
   sbg:exposed: true
 - id: combine
   doc: combine the results from PeptideProphet into a single result file
-  type:
-  - 'null'
-  - boolean
+  type: boolean?
   sbg:exposed: true
 - id: accmass
   doc: use accurate mass model binning
-  type:
-  - 'null'
-  - boolean
+  type: boolean?
   sbg:exposed: true
 - id: decoyprobs
   doc: compute possible non-zero probabilities for decoy entries on the last iteration
-  type:
-  - 'null'
-  - boolean
+  type: boolean?
   sbg:exposed: true
 - id: expectscore
   doc: use expectation value as the only contributor to the f-value for modeling
-  type:
-  - 'null'
-  - boolean
+  type: boolean?
   sbg:exposed: true
 - id: nonparam
   doc: use semi-parametric modeling, must be used in conjunction with --decoy option
-  type:
-  - 'null'
-  - boolean
+  type: boolean?
   sbg:exposed: true
 - id: ppm
   doc: use ppm mass error instead of Daltons for mass modeling
-  type:
-  - 'null'
-  - boolean
+  type: boolean?
   sbg:exposed: true
 - id: EULA
   label: Accept End Level User Agreement
@@ -172,211 +155,139 @@ inputs:
   sbg:y: 223.6128692626953
 - id: write_calibrated_mgf
   doc: Write calibrated MS2 scan to a MGF file (0 for No, 1 for Yes).
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: variable_mod_05
-  type:
-  - 'null'
-  - string
+  type: string?
   sbg:exposed: true
 - id: add_X_user_amino_acid
-  type:
-  - 'null'
-  - float
+  type: float?
   sbg:exposed: true
 - id: add_Z_user_amino_acid
-  type:
-  - 'null'
-  - float
+  type: float?
   sbg:exposed: true
 - id: add_U_user_amino_acid
-  type:
-  - 'null'
-  - float
+  type: float?
   sbg:exposed: true
 - id: add_O_user_amino_acid
-  type:
-  - 'null'
-  - float
+  type: float?
   sbg:exposed: true
 - id: add_J_user_amino_acid
-  type:
-  - 'null'
-  - float
+  type: float?
   sbg:exposed: true
 - id: add_B_user_amino_acid
-  type:
-  - 'null'
-  - float
+  type: float?
   sbg:exposed: true
 - id: add_W_tryptophan
-  type:
-  - 'null'
-  - float
+  type: float?
   sbg:exposed: true
 - id: add_C_cysteine
-  type:
-  - 'null'
-  - float
+  type: float?
   sbg:exposed: true
 - id: deisotope
   doc: Perform deisotoping or not.
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: max_fragment_charge
   doc: Maximum charge state for theoretical fragments to match (1-4).
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: digest_max_length
   doc: Maximum length of peptides to be generated during in-silico digestion.
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: digest_min_length
   doc: Minimum length of peptides to be generated during in-silico digestion.
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: precursor_charge
   doc: |-
     Assumed range of potential precursor charge states. Only relevant when override_charge is set to 1.
-  type:
-  - 'null'
-  - string
+  type: string?
   sbg:exposed: true
 - id: output_report_topN
   doc: Reports top N PSMs per input spectrum.
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: variable_mod_04
-  type:
-  - 'null'
-  - string
+  type: string?
   sbg:exposed: true
 - id: variable_mod_03
-  type:
-  - 'null'
-  - string
+  type: string?
   sbg:exposed: true
 - id: variable_mod_02
-  type:
-  - 'null'
-  - string
+  type: string?
   sbg:exposed: true
 - id: variable_mod_01
-  type:
-  - 'null'
-  - string
+  type: string?
   sbg:exposed: true
 - id: allowed_missed_cleavage
   doc: Allowed number of missed cleavages per peptide. Maximum value is 5.
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: num_enzyme_termini
   doc: 0 for non-enzymatic, 1 for semi-enzymatic, and 2 for fully-enzymatic.
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: search_enzyme_cutafter
   doc: Residues after which the enzyme cuts.
-  type:
-  - 'null'
-  - string
+  type: string?
   sbg:exposed: true
 - id: search_enzyme_name
   doc: Name of enzyme to be written to the pepXML file.
-  type:
-  - 'null'
-  - string
+  type: string?
   sbg:exposed: true
 - id: isotope_error
   doc: Also search for MS/MS events triggered on specified isotopic peaks.
-  type:
-  - 'null'
-  - string
+  type: string?
   sbg:exposed: true
 - id: decoy_prefix
   doc: Prefix added to the decoy protein ID.
-  type:
-  - 'null'
-  - string
+  type: string?
   sbg:exposed: true
 - id: calibrate_mass
   doc: |-
     Perform mass calibration (0 for OFF, 1 for ON, 2 for ON and find optimal parameters).
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: fragment_mass_units
   doc: Fragment mass tolerance units (0 for Da, 1 for ppm).
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: fragment_mass_tolerance
   doc: Fragment mass tolerance (window is +/- this value).
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: precursor_true_units
   doc: True precursor mass tolerance units (0 for Da, 1 for ppm).
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: precursor_true_tolerance
   doc: True precursor mass tolerance (window is +/- this value).
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: precursor_mass_units
   doc: Precursor mass tolerance units (0 for Da, 1 for ppm).
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: precursor_mass_upper
   doc: Upper bound of the precursor mass window.
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 - id: precursor_mass_lower
   doc: Lower bound of the precursor mass window.
-  type:
-  - 'null'
-  - int
+  type: int?
   sbg:exposed: true
 
 outputs:
 - id: peptide_prophet_folder_archive
-  type:
-  - 'null'
-  - File
+  type: File?
   outputSource:
   - peptide_prophet/peptide_prophet_folder_archive
   sbg:x: 913
   sbg:y: -84
 - id: peptide_archive_with_mzml
-  type:
-  - 'null'
-  - File
+  type: File?
   outputSource:
   - peptide_prophet/peptide_archive_with_mzml
   sbg:x: 958
@@ -583,7 +494,7 @@ steps:
   - id: use_topN_peaks
     default: 300
   - id: deisotope
-    default: 26
+    default: 1
     source: deisotope
   - id: min_fragments_modelling
     default: 3
@@ -646,50 +557,57 @@ sbg:appVersion:
 - v1.1
 sbg:categories:
 - Proteomics
-sbg:content_hash: a470f5b44c2c7c6a7694f12a593f7666787f7a9cbc0c27604567a22ad7ec447df
+sbg:content_hash: aa6f3d0850b60a8fba6d5546b97a566ad7c00506d37a528ef8dee83261a63b1f8
 sbg:contributors:
 - david.roberson
 sbg:createdBy: david.roberson
-sbg:createdOn: 1618980124
+sbg:createdOn: 1618968733
 sbg:id: |-
-  david.roberson/commit-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/1
+  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/4
 sbg:image_url: |-
-  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/commit-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/1.png
-sbg:latestRevision: 1
+  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/4.png
+sbg:latestRevision: 4
 sbg:license: EULA for MSFragger
 sbg:modifiedBy: david.roberson
-sbg:modifiedOn: 1618983778
+sbg:modifiedOn: 1618985740
 sbg:original_source: |-
-  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/commit-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/1/raw/
-sbg:project: david.roberson/commit-fragpipe-proteomics-pipeline-tutorial
-sbg:projectName: 'COMMIT: FragPipe Proteomics Pipeline Tutorial'
+  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/4/raw/
+sbg:project: david.roberson/build-fragpipe-proteomics-pipeline-tutorial
+sbg:projectName: 'BUILD: FragPipe Proteomics Pipeline Tutorial'
 sbg:publisher: sbg
-sbg:revision: 1
-sbg:revisionNotes: |-
-  Uploaded using sbpack v2020.10.05. 
-  Source: 
-  repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
-  file: FragPipe-Convert-Identify-PeptideProphet/fragpipe-convert-identify-peptideprophet.cwl
-  commit: 955be2e
+sbg:revision: 4
+sbg:revisionNotes: fixed deisotope
 sbg:revisionsInfo:
 - sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618980124
+  sbg:modifiedOn: 1618968733
   sbg:revision: 0
   sbg:revisionNotes: |-
     Uploaded using sbpack v2020.10.05. 
     Source: 
     repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
-    file: FragPipe-Convert-Identify-PeptideProphet/fragpipe-convert-identify-peptideprophet.cwl
-    commit: f95f2c2
+    file: 
+    commit: (uncommitted file)
 - sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618983778
+  sbg:modifiedOn: 1618978447
   sbg:revision: 1
   sbg:revisionNotes: |-
     Uploaded using sbpack v2020.10.05. 
     Source: 
     repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
     file: FragPipe-Convert-Identify-PeptideProphet/fragpipe-convert-identify-peptideprophet.cwl
-    commit: 955be2e
+    commit: f6161f0
+- sbg:modifiedBy: david.roberson
+  sbg:modifiedOn: 1618979582
+  sbg:revision: 2
+  sbg:revisionNotes: ''
+- sbg:modifiedBy: david.roberson
+  sbg:modifiedOn: 1618983523
+  sbg:revision: 3
+  sbg:revisionNotes: added many defaults to msfraggger as they were before
+- sbg:modifiedBy: david.roberson
+  sbg:modifiedOn: 1618985740
+  sbg:revision: 4
+  sbg:revisionNotes: fixed deisotope
 sbg:sbgMaintained: false
 sbg:toolkit: FragPipe
 sbg:toolkitVersion: v15.0
