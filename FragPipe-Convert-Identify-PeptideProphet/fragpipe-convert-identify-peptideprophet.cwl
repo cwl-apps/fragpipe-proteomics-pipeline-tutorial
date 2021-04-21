@@ -104,7 +104,6 @@ requirements:
 - class: ScatterFeatureRequirement
 - class: InlineJavascriptRequirement
 - class: StepInputExpressionRequirement
-- class: SubworkflowFeatureRequirement
 
 inputs:
 - id: database_name
@@ -116,85 +115,61 @@ inputs:
   sbg:y: 64
 - id: raw_files
   label: RAW files
-  type:
-    type: array
-    items: File
+  type: File[]
   sbg:fileTypes: RAW
   sbg:x: 31
   sbg:y: 64
 - id: decoy
   doc: |-
     semi-supervised mode, protein name prefix to identify decoy entries (default "rev_")
-  type:
-  - 'null'
-  - string
+  type: string?
   sbg:exposed: true
 - id: combine
   doc: combine the results from PeptideProphet into a single result file
-  type:
-  - 'null'
-  - boolean
+  type: boolean?
   sbg:exposed: true
 - id: accmass
   doc: use accurate mass model binning
-  type:
-  - 'null'
-  - boolean
+  type: boolean?
   sbg:exposed: true
 - id: decoyprobs
   doc: compute possible non-zero probabilities for decoy entries on the last iteration
-  type:
-  - 'null'
-  - boolean
+  type: boolean?
   sbg:exposed: true
 - id: expectscore
   doc: use expectation value as the only contributor to the f-value for modeling
-  type:
-  - 'null'
-  - boolean
+  type: boolean?
   sbg:exposed: true
 - id: nonparam
   doc: use semi-parametric modeling, must be used in conjunction with --decoy option
-  type:
-  - 'null'
-  - boolean
+  type: boolean?
   sbg:exposed: true
 - id: ppm
   doc: use ppm mass error instead of Daltons for mass modeling
-  type:
-  - 'null'
-  - boolean
+  type: boolean?
   sbg:exposed: true
 - id: EULA
   label: Accept End Level User Agreement
   type: boolean
   sbg:x: 36.55677032470703
   sbg:y: 223.6128692626953
-- id: variable_mod_05
-  type:
-  - 'null'
-  - string
-  sbg:exposed: true
 - id: write_calibrated_mgf
   doc: Write calibrated MS2 scan to a MGF file (0 for No, 1 for Yes).
-  type:
-  - 'null'
-  - int
+  type: int?
+  sbg:exposed: true
+- id: variable_mod_05
+  type: string?
   sbg:exposed: true
 
 outputs:
 - id: peptide_prophet_folder_archive
-  type:
-  - 'null'
-  - File
+  type: File?
   outputSource:
   - peptide_prophet/peptide_prophet_folder_archive
   sbg:x: 913
   sbg:y: -84
 - id: peptide_archive_with_mzml
-  type:
-  - 'null'
-  - File
+  type: File?
   outputSource:
   - peptide_prophet/peptide_archive_with_mzml
   sbg:x: 958
@@ -387,31 +362,26 @@ sbg:appVersion:
 - v1.1
 sbg:categories:
 - Proteomics
-sbg:content_hash: aa4af94cee10a8ee7a0fd1f78e65bdae1f05021a29ddb64a3c5faed364c6d43d6
+sbg:content_hash: a8e0d4641eb2bb8f3c48e5a48eba61ed8b7876ef33596722ac2d4bcfb5f9a049f
 sbg:contributors:
 - david.roberson
 sbg:createdBy: david.roberson
 sbg:createdOn: 1618968733
 sbg:id: |-
-  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/0
+  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/2
 sbg:image_url: |-
-  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/0.png
-sbg:latestRevision: 0
+  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/2.png
+sbg:latestRevision: 2
 sbg:license: EULA for MSFragger
 sbg:modifiedBy: david.roberson
-sbg:modifiedOn: 1618968733
+sbg:modifiedOn: 1618979582
 sbg:original_source: |-
-  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/0/raw/
+  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/2/raw/
 sbg:project: david.roberson/build-fragpipe-proteomics-pipeline-tutorial
 sbg:projectName: 'BUILD: FragPipe Proteomics Pipeline Tutorial'
 sbg:publisher: sbg
-sbg:revision: 0
-sbg:revisionNotes: |-
-  Uploaded using sbpack v2020.10.05. 
-  Source: 
-  repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
-  file: 
-  commit: (uncommitted file)
+sbg:revision: 2
+sbg:revisionNotes: ''
 sbg:revisionsInfo:
 - sbg:modifiedBy: david.roberson
   sbg:modifiedOn: 1618968733
@@ -422,6 +392,19 @@ sbg:revisionsInfo:
     repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
     file: 
     commit: (uncommitted file)
+- sbg:modifiedBy: david.roberson
+  sbg:modifiedOn: 1618978447
+  sbg:revision: 1
+  sbg:revisionNotes: |-
+    Uploaded using sbpack v2020.10.05. 
+    Source: 
+    repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
+    file: FragPipe-Convert-Identify-PeptideProphet/fragpipe-convert-identify-peptideprophet.cwl
+    commit: f6161f0
+- sbg:modifiedBy: david.roberson
+  sbg:modifiedOn: 1618979582
+  sbg:revision: 2
+  sbg:revisionNotes: ''
 sbg:sbgMaintained: false
 sbg:toolkit: FragPipe
 sbg:toolkitVersion: v15.0

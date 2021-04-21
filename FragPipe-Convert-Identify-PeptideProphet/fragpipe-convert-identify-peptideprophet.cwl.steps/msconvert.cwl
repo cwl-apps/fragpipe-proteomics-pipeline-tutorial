@@ -302,9 +302,7 @@ inputs:
 
 outputs:
 - id: std_out
-  type:
-  - 'null'
-  - File
+  type: File?
   outputBinding:
     glob: std.out
     outputEval: $(inheritMetadata(self, inputs.raw_files))
