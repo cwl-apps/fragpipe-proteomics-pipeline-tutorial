@@ -98,7 +98,9 @@ requirements:
 inputs:
 - id: add
   doc: add custom sequences (UniProt FASTA format only)
-  type: string?
+  type:
+  - 'null'
+  - string
   default:
   inputBinding:
     prefix: --add
@@ -106,21 +108,27 @@ inputs:
     shellQuote: false
 - id: annotate
   doc: process a ready-to-use database
-  type: File?
+  type:
+  - 'null'
+  - File
   inputBinding:
     prefix: --annotate
     position: 1
     shellQuote: false
 - id: contam
   doc: add common contaminants
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --contam
     position: 3
     shellQuote: false
 - id: custom
   doc: use a pre-formatted custom database
-  type: string?
+  type:
+  - 'null'
+  - string
   inputBinding:
     prefix: --custom
     position: 0
@@ -128,7 +136,9 @@ inputs:
 - id: enzyme
   doc: |-
     enzyme for digestion (trypsin, lys_c, lys_n, glu_c, chymotrypsin) (default "trypsin")
-  type: string?
+  type:
+  - 'null'
+  - string
   default: trypsin
   inputBinding:
     prefix: --enzyme
@@ -136,34 +146,44 @@ inputs:
     shellQuote: false
 - id: id
   doc: UniProt proteome ID
-  type: string?
+  type:
+  - 'null'
+  - string
   inputBinding:
     prefix: --id
     position: 6
     shellQuote: false
 - id: isoform
   doc: add isoform sequences
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --isoform
     position: 7
     shellQuote: false
 - id: nodecoys
   doc: don't add decoys to the database
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --nodecoys
     position: 8
     shellQuote: false
 - id: prefix
-  type: string?
+  type:
+  - 'null'
+  - string
   default: rev_
   inputBinding:
     prefix: --prefix
     position: 9
     shellQuote: false
 - id: reviewed
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   inputBinding:
     prefix: --reviewed
     position: 10
@@ -176,7 +196,9 @@ inputs:
 
 outputs:
 - id: output
-  type: File?
+  type:
+  - 'null'
+  - File
   outputBinding:
     glob: std.out
 - id: workspace

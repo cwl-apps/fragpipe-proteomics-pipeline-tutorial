@@ -104,6 +104,7 @@ requirements:
 - class: ScatterFeatureRequirement
 - class: InlineJavascriptRequirement
 - class: StepInputExpressionRequirement
+- class: SubworkflowFeatureRequirement
 
 inputs:
 - id: database_name
@@ -115,38 +116,54 @@ inputs:
   sbg:y: 64
 - id: raw_files
   label: RAW files
-  type: File[]
+  type:
+    type: array
+    items: File
   sbg:fileTypes: RAW
   sbg:x: 31
   sbg:y: 64
 - id: decoy
   doc: |-
     semi-supervised mode, protein name prefix to identify decoy entries (default "rev_")
-  type: string?
+  type:
+  - 'null'
+  - string
   sbg:exposed: true
 - id: combine
   doc: combine the results from PeptideProphet into a single result file
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   sbg:exposed: true
 - id: accmass
   doc: use accurate mass model binning
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   sbg:exposed: true
 - id: decoyprobs
   doc: compute possible non-zero probabilities for decoy entries on the last iteration
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   sbg:exposed: true
 - id: expectscore
   doc: use expectation value as the only contributor to the f-value for modeling
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   sbg:exposed: true
 - id: nonparam
   doc: use semi-parametric modeling, must be used in conjunction with --decoy option
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   sbg:exposed: true
 - id: ppm
   doc: use ppm mass error instead of Daltons for mass modeling
-  type: boolean?
+  type:
+  - 'null'
+  - boolean
   sbg:exposed: true
 - id: EULA
   label: Accept End Level User Agreement
@@ -154,22 +171,30 @@ inputs:
   sbg:x: 36.55677032470703
   sbg:y: 223.6128692626953
 - id: variable_mod_05
-  type: string?
+  type:
+  - 'null'
+  - string
   sbg:exposed: true
 - id: write_calibrated_mgf
   doc: Write calibrated MS2 scan to a MGF file (0 for No, 1 for Yes).
-  type: int?
+  type:
+  - 'null'
+  - int
   sbg:exposed: true
 
 outputs:
 - id: peptide_prophet_folder_archive
-  type: File?
+  type:
+  - 'null'
+  - File
   outputSource:
   - peptide_prophet/peptide_prophet_folder_archive
   sbg:x: 913
   sbg:y: -84
 - id: peptide_archive_with_mzml
-  type: File?
+  type:
+  - 'null'
+  - File
   outputSource:
   - peptide_prophet/peptide_archive_with_mzml
   sbg:x: 958
@@ -210,7 +235,7 @@ steps:
     - msconvert/mzML
   - id: workspace_in
     source: database/workspace
-  run: FragPipe-Convert-Identify-PeptideProphet.cwl.steps/peptide_prophet.cwl
+  run: fragpipe-convert-identify-peptideprophet.cwl.steps/peptide_prophet.cwl
   out:
   - id: peptide_prophet_log
   - id: output_xml
@@ -228,7 +253,7 @@ steps:
   - id: meta_data_files
     source:
     - raw_files
-  run: FragPipe-Convert-Identify-PeptideProphet.cwl.steps/workspace.cwl
+  run: fragpipe-convert-identify-peptideprophet.cwl.steps/workspace.cwl
   out:
   - id: workspace
   sbg:x: 243.94737243652344
@@ -240,7 +265,7 @@ steps:
     source: raw_files
   scatter:
   - raw_files
-  run: FragPipe-Convert-Identify-PeptideProphet.cwl.steps/msconvert.cwl
+  run: fragpipe-convert-identify-peptideprophet.cwl.steps/msconvert.cwl
   out:
   - id: std_out
   - id: mzML
@@ -253,7 +278,7 @@ steps:
     source: database_name
   - id: workspace_in
     source: workspace/workspace
-  run: FragPipe-Convert-Identify-PeptideProphet.cwl.steps/database.cwl
+  run: fragpipe-convert-identify-peptideprophet.cwl.steps/database.cwl
   out:
   - id: output
   - id: workspace
@@ -345,7 +370,7 @@ steps:
     default: 0
   - id: EULA
     source: EULA
-  run: FragPipe-Convert-Identify-PeptideProphet.cwl.steps/msfragger.cwl
+  run: fragpipe-convert-identify-peptideprophet.cwl.steps/msfragger.cwl
   out:
   - id: standard_out
   - id: pepxml
@@ -362,29 +387,34 @@ sbg:appVersion:
 - v1.1
 sbg:categories:
 - Proteomics
-sbg:content_hash: a3e82f77d6ae0ac33b4e23436fb132a71bdc33f64182448b0585be8211d14a251
+sbg:content_hash: aa4af94cee10a8ee7a0fd1f78e65bdae1f05021a29ddb64a3c5faed364c6d43d6
 sbg:contributors:
 - david.roberson
 sbg:createdBy: david.roberson
-sbg:createdOn: 1618956109
+sbg:createdOn: 1618968733
 sbg:id: |-
-  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe-Convert-Identify-PeptideProphet/2
+  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/0
 sbg:image_url: |-
-  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe-Convert-Identify-PeptideProphet/2.png
-sbg:latestRevision: 2
+  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/0.png
+sbg:latestRevision: 0
 sbg:license: EULA for MSFragger
 sbg:modifiedBy: david.roberson
-sbg:modifiedOn: 1618957583
+sbg:modifiedOn: 1618968733
 sbg:original_source: |-
-  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe-Convert-Identify-PeptideProphet/2/raw/
+  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/0/raw/
 sbg:project: david.roberson/build-fragpipe-proteomics-pipeline-tutorial
 sbg:projectName: 'BUILD: FragPipe Proteomics Pipeline Tutorial'
 sbg:publisher: sbg
-sbg:revision: 2
-sbg:revisionNotes: ''
+sbg:revision: 0
+sbg:revisionNotes: |-
+  Uploaded using sbpack v2020.10.05. 
+  Source: 
+  repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
+  file: 
+  commit: (uncommitted file)
 sbg:revisionsInfo:
 - sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618956109
+  sbg:modifiedOn: 1618968733
   sbg:revision: 0
   sbg:revisionNotes: |-
     Uploaded using sbpack v2020.10.05. 
@@ -392,14 +422,6 @@ sbg:revisionsInfo:
     repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
     file: 
     commit: (uncommitted file)
-- sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618957331
-  sbg:revision: 1
-  sbg:revisionNotes: added EULA parameter and filled in default values
-- sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618957583
-  sbg:revision: 2
-  sbg:revisionNotes: ''
 sbg:sbgMaintained: false
 sbg:toolkit: FragPipe
 sbg:toolkitVersion: v15.0

@@ -51,7 +51,7 @@ steps:
   in:
   - id: tmt_gene_report
     source: tmt_integrator/abundance_by_gene_report
-  run: FragPipe-TMT-Integrator-and-QC.cwl.steps/tmt_integrator_qc.cwl
+  run: fragpipe-tmt-integrator-and-qc.cwl.steps/tmt_integrator_qc.cwl
   out:
   - id: tmt_qc_report
   sbg:x: 49
@@ -64,7 +64,7 @@ steps:
     - psm_file
   - id: database
     source: database
-  run: FragPipe-TMT-Integrator-and-QC.cwl.steps/tmt_integrator.cwl
+  run: fragpipe-tmt-integrator-and-qc.cwl.steps/tmt_integrator.cwl
   out:
   - id: all_report_files
   - id: abundance_by_gene_report
@@ -82,19 +82,19 @@ sbg:content_hash: ae0e5b97dd4fa1b912e0df5f4dc491c2e6c808735c5e97296e8d15f920a6d8
 sbg:contributors:
 - david.roberson
 sbg:createdBy: david.roberson
-sbg:createdOn: 1618959488
+sbg:createdOn: 1618978230
 sbg:id: |-
-  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe-TMT-Integrator-and-QC/0
+  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-tmt-integrator-and-qc/0
 sbg:image_url: |-
-  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe-TMT-Integrator-and-QC/0.png
+  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-tmt-integrator-and-qc/0.png
 sbg:latestRevision: 0
 sbg:links:
 - id: https://fragpipe.nesvilab.org/
   label: fragpipe.nesvilab.org
 sbg:modifiedBy: david.roberson
-sbg:modifiedOn: 1618959488
+sbg:modifiedOn: 1618978230
 sbg:original_source: |-
-  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe-TMT-Integrator-and-QC/0/raw/
+  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-tmt-integrator-and-qc/0/raw/
 sbg:project: david.roberson/build-fragpipe-proteomics-pipeline-tutorial
 sbg:projectName: 'BUILD: FragPipe Proteomics Pipeline Tutorial'
 sbg:publisher: sbg
@@ -107,7 +107,7 @@ sbg:revisionNotes: |-
   commit: (uncommitted file)
 sbg:revisionsInfo:
 - sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618959488
+  sbg:modifiedOn: 1618978230
   sbg:revision: 0
   sbg:revisionNotes: |-
     Uploaded using sbpack v2020.10.05. 

@@ -57,7 +57,7 @@ steps:
           }
       }
     source: workspace_and_annotation
-  run: FragPipe-Filter-Quant-Report.cwl.steps/filter.cwl
+  run: fragpipe-filter-quant-report.cwl.steps/filter.cwl
   out:
   - id: workspace_out
   sbg:x: 536.1303100585938
@@ -78,7 +78,7 @@ steps:
           }
       }
     source: workspace_and_annotation
-  run: FragPipe-Filter-Quant-Report.cwl.steps/label_quant.cwl
+  run: fragpipe-filter-quant-report.cwl.steps/label_quant.cwl
   out:
   - id: workspace_out
   sbg:x: 719.0609130859375
@@ -88,7 +88,7 @@ steps:
   in:
   - id: workspace_in
     source: label_quant/workspace_out
-  run: FragPipe-Filter-Quant-Report.cwl.steps/freequant.cwl
+  run: fragpipe-filter-quant-report.cwl.steps/freequant.cwl
   out:
   - id: workspace_out
   sbg:x: 917.020263671875
@@ -102,7 +102,7 @@ steps:
     source: freequant/workspace_out
   - id: interact_protein_xml
     source: protxml
-  run: FragPipe-Filter-Quant-Report.cwl.steps/report.cwl
+  run: fragpipe-filter-quant-report.cwl.steps/report.cwl
   out:
   - id: report_outputs
   sbg:x: 1094.7764892578125
@@ -121,19 +121,19 @@ sbg:content_hash: a1d0c62f4d53523e5f2ebe463beb6caf2092eedf766ffc5c8d0ea0e674f584
 sbg:contributors:
 - david.roberson
 sbg:createdBy: david.roberson
-sbg:createdOn: 1618958061
+sbg:createdOn: 1618978113
 sbg:id: |-
-  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe-Filter-Quant-Report/0
+  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-filter-quant-report/0
 sbg:image_url: |-
-  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe-Filter-Quant-Report/0.png
+  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-filter-quant-report/0.png
 sbg:latestRevision: 0
 sbg:links:
 - id: https://fragpipe.nesvilab.org/
   label: fragpipe.nesvilab.org
 sbg:modifiedBy: david.roberson
-sbg:modifiedOn: 1618958061
+sbg:modifiedOn: 1618978113
 sbg:original_source: |-
-  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe-Filter-Quant-Report/0/raw/
+  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-filter-quant-report/0/raw/
 sbg:project: david.roberson/build-fragpipe-proteomics-pipeline-tutorial
 sbg:projectName: 'BUILD: FragPipe Proteomics Pipeline Tutorial'
 sbg:publisher: sbg
@@ -146,7 +146,7 @@ sbg:revisionNotes: |-
   commit: (uncommitted file)
 sbg:revisionsInfo:
 - sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618958061
+  sbg:modifiedOn: 1618978113
   sbg:revision: 0
   sbg:revisionNotes: |-
     Uploaded using sbpack v2020.10.05. 

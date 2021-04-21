@@ -48,7 +48,7 @@ steps:
   - id: workspace_in
     source:
     - workspace_in
-  run: FragPipe-ProteinProphet.cwl.steps/philosopher_proteinprophet.cwl
+  run: fragPipe-proteinprophet.cwl.steps/philosopher_proteinprophet.cwl
   out:
   - id: interact_protein_xml
   sbg:x: -100
@@ -65,52 +65,39 @@ sbg:content_hash: a9732c3274149710590c5c3963f5f088ad111cb6ac24893839d6e07a60c7f1
 sbg:contributors:
 - david.roberson
 sbg:createdBy: david.roberson
-sbg:createdOn: 1618935055
+sbg:createdOn: 1618977888
 sbg:id: |-
-  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe_ProteinProphet/2
+  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragPipe-proteinprophet/0
 sbg:image_url: |-
-  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe_ProteinProphet/2.png
-sbg:latestRevision: 2
+  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragPipe-proteinprophet/0.png
+sbg:latestRevision: 0
 sbg:links:
 - id: https://fragpipe.nesvilab.org/
   label: fragpipe.nesvilab.org
 sbg:modifiedBy: david.roberson
-sbg:modifiedOn: 1618937533
+sbg:modifiedOn: 1618977888
 sbg:original_source: |-
-  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/FragPipe_ProteinProphet/2/raw/
+  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragPipe-proteinprophet/0/raw/
 sbg:project: david.roberson/build-fragpipe-proteomics-pipeline-tutorial
 sbg:projectName: 'BUILD: FragPipe Proteomics Pipeline Tutorial'
 sbg:publisher: sbg
-sbg:revision: 2
+sbg:revision: 0
 sbg:revisionNotes: |-
   Uploaded using sbpack v2020.10.05. 
   Source: 
   repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
-  file: FragPipe_ProteinProphet/FragPipe_ProteinProphet.cwl
-  commit: da2bd4b
+  file: 
+  commit: (uncommitted file)
 sbg:revisionsInfo:
 - sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618935055
+  sbg:modifiedOn: 1618977888
   sbg:revision: 0
   sbg:revisionNotes: |-
     Uploaded using sbpack v2020.10.05. 
     Source: 
     repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
-    file: apps/FragPipe_ProteinProphet/FragPipe_ProteinProphet.cwl
-    commit: e94cb2b
-- sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618936480
-  sbg:revision: 1
-  sbg:revisionNotes: ''
-- sbg:modifiedBy: david.roberson
-  sbg:modifiedOn: 1618937533
-  sbg:revision: 2
-  sbg:revisionNotes: |-
-    Uploaded using sbpack v2020.10.05. 
-    Source: 
-    repo: https://github.com/davidroberson/fragpipe-proteomics-pipeline-tutorial.git
-    file: FragPipe_ProteinProphet/FragPipe_ProteinProphet.cwl
-    commit: da2bd4b
+    file: 
+    commit: (uncommitted file)
 sbg:sbgMaintained: false
 sbg:toolAuthor: Felipe da Veiga Leprevost
 sbg:toolkit: FragPipe
