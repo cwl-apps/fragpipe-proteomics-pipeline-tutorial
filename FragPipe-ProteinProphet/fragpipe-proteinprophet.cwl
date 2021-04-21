@@ -48,7 +48,7 @@ steps:
   - id: workspace_in
     source:
     - workspace_in
-  run: fragPipe-proteinprophet.cwl.steps/philosopher_proteinprophet.cwl
+  run: fragpipe-proteinprophet.cwl.steps/philosopher_proteinprophet.cwl
   out:
   - id: interact_protein_xml
   sbg:x: -100
