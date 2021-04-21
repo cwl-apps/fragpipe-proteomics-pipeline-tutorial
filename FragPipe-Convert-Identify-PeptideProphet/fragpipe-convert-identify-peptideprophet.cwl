@@ -160,6 +160,124 @@ inputs:
 - id: variable_mod_05
   type: string?
   sbg:exposed: true
+- id: add_X_user_amino_acid
+  type: float?
+  sbg:exposed: true
+- id: add_Z_user_amino_acid
+  type: float?
+  sbg:exposed: true
+- id: add_U_user_amino_acid
+  type: float?
+  sbg:exposed: true
+- id: add_O_user_amino_acid
+  type: float?
+  sbg:exposed: true
+- id: add_J_user_amino_acid
+  type: float?
+  sbg:exposed: true
+- id: add_B_user_amino_acid
+  type: float?
+  sbg:exposed: true
+- id: add_W_tryptophan
+  type: float?
+  sbg:exposed: true
+- id: add_C_cysteine
+  type: float?
+  sbg:exposed: true
+- id: deisotope
+  doc: Perform deisotoping or not.
+  type: int?
+  sbg:exposed: true
+- id: max_fragment_charge
+  doc: Maximum charge state for theoretical fragments to match (1-4).
+  type: int?
+  sbg:exposed: true
+- id: digest_max_length
+  doc: Maximum length of peptides to be generated during in-silico digestion.
+  type: int?
+  sbg:exposed: true
+- id: digest_min_length
+  doc: Minimum length of peptides to be generated during in-silico digestion.
+  type: int?
+  sbg:exposed: true
+- id: precursor_charge
+  doc: |-
+    Assumed range of potential precursor charge states. Only relevant when override_charge is set to 1.
+  type: string?
+  sbg:exposed: true
+- id: output_report_topN
+  doc: Reports top N PSMs per input spectrum.
+  type: int?
+  sbg:exposed: true
+- id: variable_mod_04
+  type: string?
+  sbg:exposed: true
+- id: variable_mod_03
+  type: string?
+  sbg:exposed: true
+- id: variable_mod_02
+  type: string?
+  sbg:exposed: true
+- id: variable_mod_01
+  type: string?
+  sbg:exposed: true
+- id: allowed_missed_cleavage
+  doc: Allowed number of missed cleavages per peptide. Maximum value is 5.
+  type: int?
+  sbg:exposed: true
+- id: num_enzyme_termini
+  doc: 0 for non-enzymatic, 1 for semi-enzymatic, and 2 for fully-enzymatic.
+  type: int?
+  sbg:exposed: true
+- id: search_enzyme_cutafter
+  doc: Residues after which the enzyme cuts.
+  type: string?
+  sbg:exposed: true
+- id: search_enzyme_name
+  doc: Name of enzyme to be written to the pepXML file.
+  type: string?
+  sbg:exposed: true
+- id: isotope_error
+  doc: Also search for MS/MS events triggered on specified isotopic peaks.
+  type: string?
+  sbg:exposed: true
+- id: decoy_prefix
+  doc: Prefix added to the decoy protein ID.
+  type: string?
+  sbg:exposed: true
+- id: calibrate_mass
+  doc: |-
+    Perform mass calibration (0 for OFF, 1 for ON, 2 for ON and find optimal parameters).
+  type: int?
+  sbg:exposed: true
+- id: fragment_mass_units
+  doc: Fragment mass tolerance units (0 for Da, 1 for ppm).
+  type: int?
+  sbg:exposed: true
+- id: fragment_mass_tolerance
+  doc: Fragment mass tolerance (window is +/- this value).
+  type: int?
+  sbg:exposed: true
+- id: precursor_true_units
+  doc: True precursor mass tolerance units (0 for Da, 1 for ppm).
+  type: int?
+  sbg:exposed: true
+- id: precursor_true_tolerance
+  doc: True precursor mass tolerance (window is +/- this value).
+  type: int?
+  sbg:exposed: true
+- id: precursor_mass_units
+  doc: Precursor mass tolerance units (0 for Da, 1 for ppm).
+  type: int?
+  sbg:exposed: true
+- id: precursor_mass_upper
+  doc: Upper bound of the precursor mass window.
+  type: int?
+  sbg:exposed: true
+- id: precursor_mass_lower
+  doc: Lower bound of the precursor mass window.
+  type: int?
+  sbg:exposed: true
 
 outputs:
 - id: peptide_prophet_folder_archive
@@ -266,28 +384,68 @@ steps:
     source: database_name
   - id: precursor_mass_lower
     default: -20
+    source: precursor_mass_lower
   - id: precursor_mass_upper
     default: 20
+    source: precursor_mass_upper
   - id: precursor_mass_units
     default: 1
+    source: precursor_mass_units
   - id: precursor_true_tolerance
     default: 20
+    source: precursor_true_tolerance
   - id: precursor_true_units
     default: 1
+    source: precursor_true_units
+  - id: fragment_mass_tolerance
+    default: 20
+    source: fragment_mass_tolerance
   - id: fragment_mass_units
     default: 1
+    source: fragment_mass_units
   - id: calibrate_mass
     default: 0
+    source: calibrate_mass
   - id: write_calibrated_mgf
     source: write_calibrated_mgf
+  - id: decoy_prefix
+    default: rev_
+    source: decoy_prefix
+  - id: isotope_error
+    default: -1/0/1/2/3
+    source: isotope_error
   - id: precursor_mass_mode
     default: selected
   - id: localize_delta_mass
     default: '0'
   - id: fragment_ion_series
     default: b,y
+  - id: search_enzyme_name
+    default: stricttrypsin
+    source: search_enzyme_name
+  - id: search_enzyme_cutafter
+    default: KR
+    source: search_enzyme_cutafter
+  - id: num_enzyme_termini
+    default: 2
+    source: num_enzyme_termini
+  - id: allowed_missed_cleavage
+    default: 2
+    source: allowed_missed_cleavage
   - id: clip_nTerm_M
     default: 1
+  - id: variable_mod_01
+    default: 15.99490_M_3
+    source: variable_mod_01
+  - id: variable_mod_02
+    default: 42.01060_[^_1
+    source: variable_mod_02
+  - id: variable_mod_03
+    default: 229.162932_n^_1
+    source: variable_mod_03
+  - id: variable_mod_04
+    default: 229.162932_S_1
+    source: variable_mod_04
   - id: variable_mod_05
     source: variable_mod_05
   - id: allow_multiple_variable_mods_on_residue
@@ -300,14 +458,29 @@ steps:
     default: pepXML
   - id: output_format
     default: pepXML
+  - id: output_report_topN
+    default: 1
+    source: output_report_topN
   - id: output_max_expect
     default: 50
   - id: report_alternative_proteins
     default: 0
+  - id: precursor_charge
+    default: '1_6'
+    source: precursor_charge
   - id: override_charge
     default: 0
+  - id: digest_min_length
+    default: 7
+    source: digest_min_length
+  - id: digest_max_length
+    default: 50
+    source: digest_max_length
   - id: digest_mass_range
     default: 500.0_5000.0
+  - id: max_fragment_charge
+    default: 2
+    source: max_fragment_charge
   - id: track_zero_topN
     default: 0
   - id: zero_bin_accept_expect
@@ -320,6 +493,9 @@ steps:
     default: 15
   - id: use_topN_peaks
     default: 300
+  - id: deisotope
+    default: 26
+    source: deisotope
   - id: min_fragments_modelling
     default: 3
   - id: min_matched_fragments
@@ -330,6 +506,25 @@ steps:
     default: 125.5_131.5
   - id: remove_precursor_peak
     default: 0
+  - id: add_C_cysteine
+    default: 57.021464
+    source: add_C_cysteine
+  - id: add_K_lysine
+    default: 229.162932
+  - id: add_W_tryptophan
+    source: add_W_tryptophan
+  - id: add_B_user_amino_acid
+    source: add_B_user_amino_acid
+  - id: add_J_user_amino_acid
+    source: add_J_user_amino_acid
+  - id: add_O_user_amino_acid
+    source: add_O_user_amino_acid
+  - id: add_U_user_amino_acid
+    source: add_U_user_amino_acid
+  - id: add_X_user_amino_acid
+    source: add_X_user_amino_acid
+  - id: add_Z_user_amino_acid
+    source: add_Z_user_amino_acid
   - id: mzML
     source:
     - msconvert/mzML
@@ -362,26 +557,26 @@ sbg:appVersion:
 - v1.1
 sbg:categories:
 - Proteomics
-sbg:content_hash: a8e0d4641eb2bb8f3c48e5a48eba61ed8b7876ef33596722ac2d4bcfb5f9a049f
+sbg:content_hash: a9546f9020dc18379bc34080583a5a31b84b5da372e63917e10911337bc4e6414
 sbg:contributors:
 - david.roberson
 sbg:createdBy: david.roberson
 sbg:createdOn: 1618968733
 sbg:id: |-
-  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/2
+  david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/3
 sbg:image_url: |-
-  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/2.png
-sbg:latestRevision: 2
+  https://cgc.sbgenomics.com/ns/brood/images/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/3.png
+sbg:latestRevision: 3
 sbg:license: EULA for MSFragger
 sbg:modifiedBy: david.roberson
-sbg:modifiedOn: 1618979582
+sbg:modifiedOn: 1618983523
 sbg:original_source: |-
-  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/2/raw/
+  https://cgc-api.sbgenomics.com/v2/apps/david.roberson/build-fragpipe-proteomics-pipeline-tutorial/fragpipe-convert-identify-peptideprophet/3/raw/
 sbg:project: david.roberson/build-fragpipe-proteomics-pipeline-tutorial
 sbg:projectName: 'BUILD: FragPipe Proteomics Pipeline Tutorial'
 sbg:publisher: sbg
-sbg:revision: 2
-sbg:revisionNotes: ''
+sbg:revision: 3
+sbg:revisionNotes: added many defaults to msfraggger as they were before
 sbg:revisionsInfo:
 - sbg:modifiedBy: david.roberson
   sbg:modifiedOn: 1618968733
@@ -405,6 +600,10 @@ sbg:revisionsInfo:
   sbg:modifiedOn: 1618979582
   sbg:revision: 2
   sbg:revisionNotes: ''
+- sbg:modifiedBy: david.roberson
+  sbg:modifiedOn: 1618983523
+  sbg:revision: 3
+  sbg:revisionNotes: added many defaults to msfraggger as they were before
 sbg:sbgMaintained: false
 sbg:toolkit: FragPipe
 sbg:toolkitVersion: v15.0
