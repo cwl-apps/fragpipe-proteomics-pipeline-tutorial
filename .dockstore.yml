@@ -1,0 +1,30 @@
+version: 1.2
+workflows:
+  - name: FragPipe_PeptideProphet
+    subclass: CWL
+    primaryDescriptorPath: /FragPipe-Convert-Identify-PeptideProphet/fragpipe-convert-identify-peptideprophet.cwl
+    authors:
+      - name: Dave Roberson
+        email: david.roberson@sevenbridges.com
+  - name: FragPipe_Report
+    subclass: CWL
+    primaryDescriptorPath: /FragPipe-Filter-Quant-Report/fragpipe-filter-quant-report.cwl
+    authors:
+      - name: Dave Roberson
+        email: david.roberson@sevenbridges.com
+  - name: FragPipe_ProteinProphet
+    subclass: CWL
+    primaryDescriptorPath: /FragPipe-ProteinProphet/fragpipe-proteinprophet.cwl
+    authors:
+      - name: Dave Roberson
+        email: david.roberson@sevenbridges.com
+      - name: Felipe da Veiga Leprevost
+        email: felipevl@umich.edu
+  - name: FragPipe_TMT_QC
+    subclass: CWL
+    primaryDescriptorPath: /FragPipe-TMT-Integrator-and-QC/fragpipe-tmt-integrator-and-qc.cwl
+    authors:
+      - name: Dave Roberson
+        email: david.roberson@sevenbridges.com
+      - name: Felipe da Veiga Leprevost
+        email: felipevl@umich.edu
