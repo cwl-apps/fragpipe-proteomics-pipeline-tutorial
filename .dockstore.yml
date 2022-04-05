@@ -4,7 +4,7 @@ workflows:
     subclass: CWL
     primaryDescriptorPath: /FragPipe-Convert-Identify-PeptideProphet/fragpipe-convert-identify-peptideprophet.cwl
     authors:
-      - name: Dave Roberson
+      - name: David Roberson
         email: david.roberson@sevenbridges.com
   - name: FragPipe_Report
     subclass: CWL
